@@ -6,7 +6,7 @@ Users can submit long URLs and get shortened versions. Visiting a short URL redi
 ---
 ## 🚀 Live Demo
 
-- 🔗 **Frontend**: [https://minilinkedin-flame.vercel.app/](https://shortener-blue.vercel.app/)  
+- 🔗 **Frontend**: [https://shortener-blue.vercel.app](https://shortener-blue.vercel.app/)  
 
 ---
 
