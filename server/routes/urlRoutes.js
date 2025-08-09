@@ -5,14 +5,12 @@ import shortid from "shortid";
 import Url from "../models/Url.js";
 
 const router = express.Router();
-
-// ✅ POST /shorten - create short URL
+ 
 router.post("/shorten", async (req, res) => {
   const { original_url } = req.body;
   if (!original_url) return res.status(400).json({ error: "URL is required" });
 
-  try {
-    // Check if URL already exists
+  try { 
     let existing = await Url.findOne({ original_url });
     if (existing) {
       return res.json({
@@ -21,8 +19,7 @@ router.post("/shorten", async (req, res) => {
         visit_count: existing.visit_count
       });
     }
-
-    // Generate short code starting with "rohit"
+ 
     const randomCode = shortid.generate();
     const short_code = `rohit${randomCode}`;
 
@@ -42,8 +39,7 @@ router.post("/shorten", async (req, res) => {
     res.status(500).json({ error: "Something went wrong" });
   }
 });
-
-// ✅ GET /:shortcode - redirect to original URL
+ 
 router.get("/:shortcode", async (req, res) => {
   try {
     const url = await Url.findOne({ short_code: req.params.shortcode });
@@ -57,8 +53,7 @@ router.get("/:shortcode", async (req, res) => {
     res.status(500).send("Server error");
   }
 });
-
-// ✅ GET all URLs for admin + total count
+ 
 router.get("/admin/list", async (req, res) => {
   try {
     const urls = await Url.find().sort({ createdAt: -1 });
@@ -69,7 +64,6 @@ router.get("/admin/list", async (req, res) => {
   }
 });
 
-// ✅ DELETE a URL (for admin)
 router.delete("/admin/delete/:id", async (req, res) => {
   try {
     const deleted = await Url.findByIdAndDelete(req.params.id);
