@@ -36,13 +36,17 @@ Users can submit long URLs and get shortened versions. Visiting a short URL redi
 
 ---
 
+
 ## API Endpoints
 
-| Method | Endpoint        | Description                          |
-|--------|-----------------|------------------------------------|
-| POST   | `/api/shorten`  | Accepts a long URL, returns short code |
-| GET    | `/:shortcode`   | Redirects to the original URL       |
-| GET    | `/api/admin/urls` | (Optional) Lists all URLs with visit counts |
+| Method | Endpoint              | Description                        |
+|--------|-----------------------|----------------------------------|
+| POST   | `/api/shorten`        | Submit a long URL and get short URL |
+| GET    | `/:shortcode`         | Redirect to original long URL      |
+| GET    | `/api/admin/urls`     | List all shortened URLs with visit counts |
+| DELETE | `/api/admin/delete/:id` | Delete a shortened URL by ID       |
+
+## Running Locally
 
 ---
 - Node.js and npm
