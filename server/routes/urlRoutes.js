@@ -21,7 +21,7 @@ router.post("/shorten", async (req, res) => {
     }
  
     const randomCode = shortid.generate();
-    const short_code = `rohit${randomCode}`;
+    const short_code = `r${randomCode}`;
 
     await Url.create({
       original_url,
