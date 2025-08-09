@@ -13,7 +13,7 @@ const app = express();
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://shortenerapp-assignment2.vercel.app',
+  'https://shortener-blue.vercel.app',
 ];
 
 // CORS middleware
