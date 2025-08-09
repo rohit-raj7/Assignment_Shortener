@@ -8,6 +8,10 @@ Users can submit long URLs and get shortened versions. Visiting a short URL redi
 
 - 🔗 **Frontend**: [https://shortener-blue.vercel.app](https://shortener-blue.vercel.app/)  
 
+
+- 🔗 **video** : https://github.com/user-attachments/assets/d129927f-f3dd-4495-8702-5671795c0439
+
+
 ---
 
 
