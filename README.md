@@ -1,4 +1,4 @@
-# MERN URL Shortener
+# Assignment URL Shortener
 
 A simple URL shortener web application built with the MERN stack (MongoDB, Express, React, Node.js).  
 Users can submit long URLs and get shortened versions. Visiting a short URL redirects to the original.
