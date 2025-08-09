@@ -22,13 +22,13 @@ export default function UrlForm({ onUrlGenerated }) {
       setVisitCount(0);
       setUrl("");
 
-      toast.success("✅ Short URL generated!", { position: "top-right" });
+      toast.success("Short URL generated!", { position: "top-right" });
 
       if (onUrlGenerated) {
         onUrlGenerated();
       }
     } catch (err) {
-      toast.error("❌ Unable to shorten URL.", { position: "top-right" });
+      toast.error("Unable to shorten URL.", { position: "top-right" });
     } finally {
       setLoading(false);
     }
