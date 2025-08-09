@@ -38,10 +38,10 @@ export default function UrlForm({ onUrlGenerated }) {
     }
   };
 
-  // const copyToClipboard = () => {
-  //   navigator.clipboard.writeText(shortUrl);
-  //   toast.info("📋 Copied to clipboard!", { position: "top-right" });
-  // };
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(shortUrl);
+    toast.info("📋 Copied to clipboard!", { position: "top-right" });
+  };
 
   return (
     <div className="max-w-lg mx-auto mt-10 p-6 rounded-2xl shadow-xl bg-white/30 backdrop-blur-md border border-white/20 relative">
@@ -78,12 +78,12 @@ export default function UrlForm({ onUrlGenerated }) {
             >
               {shortUrl}
             </a>
-{/*             <button
+            <button
               onClick={copyToClipboard}
               className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600"
             >
               Copy
-            </button> */}
+            </button>
           </div>
         </div>
       )}
