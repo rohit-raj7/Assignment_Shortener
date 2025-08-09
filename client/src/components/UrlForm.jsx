@@ -15,7 +15,7 @@ export default function UrlForm({ onUrlGenerated }) {
     setShortUrl("");
 
     try {
-      const res = await axios.post("https://shortener-assignment25.vercel.app/api/shorten", {
+      const res = await axios.post("https://raj25.vercel.app/api/shorten", {
         original_url: url,
       });
       setShortUrl(res.data.short_url);

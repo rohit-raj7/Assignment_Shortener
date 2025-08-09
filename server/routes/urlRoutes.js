@@ -6,58 +6,23 @@ import Url from "../models/Url.js";
 
 const router = express.Router();
  
-// router.post("/shorten", async (req, res) => {
-//   const { original_url } = req.body;
-//   if (!original_url) return res.status(400).json({ error: "URL is required" });
-
-//   try { 
-//     let existing = await Url.findOne({ original_url });
-//     if (existing) {
-//       return res.json({
-//         short_code: existing.short_code,
-//         short_url: `${process.env.BASE_URL || `${req.protocol}://${req.get("host")}`}/${existing.short_code}`,
-//         visit_count: existing.visit_count
-//       });
-//     }
- 
-//     const randomCode = shortid.generate();
-//     const short_code = `r${randomCode}`;
-
-//     await Url.create({
-//       original_url,
-//       short_code,
-//       visit_count: 0
-//     });
-
-//     res.json({
-//       short_code,
-//       short_url: `${process.env.BASE_URL || `${req.protocol}://${req.get("host")}`}/${short_code}`,
-//       visit_count: 0
-//     });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).json({ error: "Something went wrong" });
-//   }
-// });
- 
-
 router.post("/shorten", async (req, res) => {
   const { original_url } = req.body;
   if (!original_url) return res.status(400).json({ error: "URL is required" });
 
-  try {
+  try { 
     let existing = await Url.findOne({ original_url });
-    const base = process.env.BASE_URL || `${req.protocol}://${req.get("host")}`;
-
     if (existing) {
       return res.json({
         short_code: existing.short_code,
-        short_url: `${base}/${existing.short_code}`,
+        short_url: `${process.env.BASE_URL || `${req.protocol}://${req.get("host")}`}/${existing.short_code}`,
         visit_count: existing.visit_count
       });
     }
+ 
+    const randomCode = shortid.generate();
+    const short_code = `r${randomCode}`;
 
-    const short_code = shortid.generate();
     await Url.create({
       original_url,
       short_code,
@@ -66,7 +31,7 @@ router.post("/shorten", async (req, res) => {
 
     res.json({
       short_code,
-      short_url: `${base}/${short_code}`,
+      short_url: `${process.env.BASE_URL || `${req.protocol}://${req.get("host")}`}/${short_code}`,
       visit_count: 0
     });
   } catch (error) {
@@ -74,6 +39,7 @@ router.post("/shorten", async (req, res) => {
     res.status(500).json({ error: "Something went wrong" });
   }
 });
+ 
 
 
 router.get("/:shortcode", async (req, res) => {
