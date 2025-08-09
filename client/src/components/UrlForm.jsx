@@ -71,7 +71,7 @@ export default function UrlForm({ onUrlGenerated }) {
           <div className="flex items-center gap-3">
             <span className="text-gray-700 font-medium">Short URL:</span>
             <a
-              href={`https://raj25.vercel.app/${shortCode}`}
+              href={`https://raj25.vercel.app/api/${shortCode}`}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 underline"
