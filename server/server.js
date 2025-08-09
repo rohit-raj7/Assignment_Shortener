@@ -13,7 +13,7 @@ const app = express();
 
 const allowedOrigins = [
   'http://localhost:5173',
-  'https://minilinkedin-flame.vercel.app',
+  'https://shortenerapp-assignment2.vercel.app',
 ];
 
 // CORS middleware
