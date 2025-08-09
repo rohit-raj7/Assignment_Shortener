@@ -12,7 +12,7 @@ const AdminPanel = forwardRef((props, ref) => {
   const loadUrls = () => {
     setLoading(true);
     axios
-      .get("http://localhost:3001/admin/list")
+      .get("http://localhost:3001/api/admin/list")
       .then((res) => {
         setUrls(res.data.urls);
         setTotalCount(res.data.total_count);
@@ -23,7 +23,7 @@ const AdminPanel = forwardRef((props, ref) => {
 
   const deleteUrl = async (id) => {
     try {
-      await axios.delete(`http://localhost:3001/admin/delete/${id}`);
+      await axios.delete(`http://localhost:3001/api/admin/delete/${id}`);
       setMessage("✅ URL deleted successfully!");
       loadUrls();
     } catch (err) {
@@ -78,7 +78,7 @@ const AdminPanel = forwardRef((props, ref) => {
                     <td className="p-3 border break-words">{url.original_url}</td>
                     <td className="p-3 border">
                       <a
-                        href={`http://localhost:3001/${url.short_code}`}
+                        href={`http://localhost:3001/api/${url.short_code}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 underline"
@@ -132,7 +132,7 @@ const AdminPanel = forwardRef((props, ref) => {
                     <span className="font-bold text-gray-700 w-1/3">Short</span>
                     <span className="w-2/3">
                       <a
-                        href={`http://localhost:3001/${url.short_code}`}
+                        href={`http://localhost:3001/api/${url.short_code}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600 underline"

@@ -30,7 +30,8 @@ app.use(cors({
 
 app.use(express.json());
 
- app.use("/", urlRoutes);
+app.get('/', (req, res) => res.send('API Working'))
+ app.use("/api", urlRoutes);
 
 const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

@@ -15,7 +15,7 @@ export default function UrlForm({ onUrlGenerated }) {
     setShortUrl("");
 
     try {
-      const res = await axios.post("http://localhost:3001/shorten", {
+      const res = await axios.post("http://localhost:3001/api/shorten", {
         original_url: url,
       });
       setShortUrl(res.data.short_url);
