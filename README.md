@@ -1,63 +1,48 @@
-# 🌐 ConnectHub
+# MERN URL Shortener
 
-> A clean and modern **professional networking platform** inspired by LinkedIn.  
-> Built with **React**, **Tailwind CSS**, **Node.js**, and **MongoDB**, ConnectHub lets users create accounts, share text-only posts, view profiles, and explore a public feed in real-time.
+A simple URL shortener web application built with the MERN stack (MongoDB, Express, React, Node.js).  
+Users can submit long URLs and get shortened versions. Visiting a short URL redirects to the original.
 
 ---
-
 ## 🚀 Live Demo
 
-- 🔗 **Frontend**: [https://minilinkedin-flame.vercel.app/](https://minilinkedin-flame.vercel.app/) 
-- 🔗 **Backend**: [https://linkedinbackerd.vercel.app/](https://linkedinbackerd.vercel.app/)
+- 🔗 **Frontend**: [https://minilinkedin-flame.vercel.app/](https://shortener-blue.vercel.app/)  
 
 ---
 
-## ✨ Features
 
-### ✅ User Authentication
-- Register & login with email + password  
-- Secure session using **JWT**  
-- User profile includes **name**, **email**, and **bio**
+## Features
 
-### 📰 Public Post Feed
-- Text-only post creation  
-- Displays all users’ posts in a **real-time feed**  
-- Shows **author name** and **timestamp**
+- Submit **long URLs** and receive a **short URL**.
+- Redirect from **short URLs** to **original URLs**.
+  
+ ***Admin dashboard (optional)***
+ - Lists all **shortened** URLs.
+ - Tracks how many times each short URL was visited.
 
-### 👤 Profile Page
-- View any user’s public profile  
-- See their **bio** and **list of posts**
+ - Delete the URL from Admin Dashboard.
+ 
+---
+
+## Technology Stack
+
+| Frontend       | Backend               | Database          |
+|----------------|-----------------------|-------------------|
+| React          | Node.js + Express     | MongoDB + Mongoose|
 
 ---
 
-## 🛠️ Tech Stack
+## API Endpoints
 
-| Layer     | Technology                          |
-|-----------|-------------------------------------|
-| Frontend  | React, Vite, Tailwind CSS           |
-| Backend   | Node.js, Express.js                 |
-| Database  | MongoDB + Mongoose                  |
-| Auth      | JWT, bcrypt.js                      |
-| Hosting   | Vercel (frontend & backend)         |
+| Method | Endpoint        | Description                          |
+|--------|-----------------|------------------------------------|
+| POST   | `/api/shorten`  | Accepts a long URL, returns short code |
+| GET    | `/:shortcode`   | Redirects to the original URL       |
+| GET    | `/api/admin/urls` | (Optional) Lists all URLs with visit counts |
 
 ---
+- Node.js and npm
+- MongoDB (local or Atlas)
 
-## ⚙️ Getting Started
 
-### 🧩 Clone Both Repositories
-
-#### 🔷 Frontend
-
-```bash
-git clone https://github.com/your-username/connecthub.git
-cd client
-npm install
-npm run dev
-```
-
-#### 🔷 Backend
-
-```bash 
-cd server
-npm install
-npm run dev
+ 
